@@ -250,6 +250,17 @@ class RenameDialog(tk.Toplevel):
         self.last_entry = tk.Entry(fields, textvariable=self.last_var, width=22)
         _style_entry(self.last_entry)
         self.last_entry.grid(row=1, column=1, sticky="ew", padx=(12, 0), pady=4)
+
+        # Personal filament checkbox
+        self.personal_filament_var = tk.BooleanVar(value=False)
+        personal_filament_cb = tk.Checkbutton(
+            fields, text="Personal filament", variable=self.personal_filament_var,
+            command=self._on_change, font=FONT_BODY, fg=TEXT, bg=BG,
+            activeforeground=TEXT, activebackground=BG, selectcolor=ACCENT,
+            cursor="hand2"
+        )
+        personal_filament_cb.grid(row=2, column=1, sticky="w", padx=(12, 0), pady=(6, 4))
+
         fields.columnconfigure(1, weight=1)
 
         # Preview label
@@ -287,7 +298,8 @@ class RenameDialog(tk.Toplevel):
         if not first or not last:
             return None
         old_stem = self.file_path.stem
-        return f"{first}_{last}-{old_stem}"
+        suffix = "_P" if self.personal_filament_var.get() else ""
+        return f"{first}_{last}-{old_stem}{suffix}"
 
     def _on_change(self, *_):
         stem = self._proposed_stem()
