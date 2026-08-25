@@ -61,14 +61,14 @@ IF EXIST "dist\MakeItBambuRenamer.exe" (
     echo ============================================================
     echo  SUCCESS!
     echo.
-    echo  EXE location:   dist\BambuRenamer.exe
+    echo  EXE location:   dist\MakeItBambuRenamer.exe
     echo.
     echo  SETUP STEPS:
-    echo    1. Copy BambuRenamer.exe to wherever you want to keep it
-    echo    2. Right-click BambuRenamer.exe, select "Properties"
+    echo    1. Copy MakeItBambuRenamer.exe to wherever you want to keep it
+    echo    2. Right-click MakeItBambuRenamer.exe, select "Properties"
     echo    3. Click "Unblock" at the bottom if that option appears
     echo    4. Click OK
-    echo    5. Now drag any .3mf file onto BambuRenamer.exe
+    echo    5. Now drag any .3mf file onto MakeItBambuRenamer.exe
     echo ============================================================
 ) ELSE (
     echo BUILD FAILED - check output above for errors.
