@@ -108,7 +108,7 @@ def update_3mf_metadata(src: Path, dst: Path, new_title: str):
                 text = data.decode("utf-8", errors="replace")
                 # Update Title
                 text = re.sub(
-                    r'(<metadata name="Title">)[^<]*(</metadata>)',
+                    r'(<metadata name="Title"[^>]*>)[^<]*(</metadata>)',
                     lambda m: m.group(1) + new_title + m.group(2),
                     text
                 )
